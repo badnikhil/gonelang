@@ -12,7 +12,7 @@ struct TOKEN{
 
 void generate_for_exit(int value) {
     // This function would generate assembly code for a return statement
-    FILE *asm_file = fopen("output.s", "w");
+    FILE *asm_file = fopen("build/output.s", "w");
 
   fprintf(asm_file, 
     ".global _start\n"
@@ -52,7 +52,7 @@ void tokenise(char* code) {
         }
         token[idx] = '\0';  
         
-        if (strcmp(token, "return") == 0) {
+        if (strcmp(token, "exit") == 0) {
             struct TOKEN token; 
             token.type = _EXIT;
 
@@ -80,7 +80,7 @@ void tokenise(char* code) {
     }
 }
 char* readfile() {
-    FILE *file = fopen("main.gl", "r");
+    FILE *file = fopen("example/main.gl", "r");
     long file_size;
     char* buffer;
     fseek(file, 0, SEEK_END);
@@ -95,14 +95,13 @@ char* readfile() {
 }
 
 void execute() {
-    system("as -64 output.s -o output.o");
+    system("as -64 output.s -o build/output.o");
 
-    system("ld output.o -o output");
+    system("ld output.o -o build/output");
 
     
     int exit_code = system("./output");
     
-    // Extract actual exit code (system() returns exit_code << 8)
     int actual_exit_code = WEXITSTATUS(exit_code);
     printf("Program exited with code: %d\n", actual_exit_code);
    
