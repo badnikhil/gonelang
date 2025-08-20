@@ -95,12 +95,12 @@ char* readfile() {
 }
 
 void execute() {
-    system("as -64 output.s -o build/output.o");
+    system("as -64 build/output.s -o build/output.o");
 
-    system("ld output.o -o build/output");
+    system("ld build/output.o -o build/output");
 
     
-    int exit_code = system("./output");
+    int exit_code = system("./build/output");
     
     int actual_exit_code = WEXITSTATUS(exit_code);
     printf("Program exited with code: %d\n", actual_exit_code);
