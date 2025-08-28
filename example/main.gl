@@ -1,1 +1,2 @@
-exit 88;
+printn("puyg\n");
+exit 5;
