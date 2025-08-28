@@ -179,15 +179,14 @@ char* readfile() {
     return buffer;
 }
 
-void execute(int exit) {
+void execute() {
     system("as -64 build/output.s -o build/output.o");
 
     system("ld build/output.o -o build/output");
 
     
     system("./build/output");
-// update to pass relevant exit code
-   if(exit) exit(0);
+// update to pass relevant exit code);
 }
 void main(){
    char* code = readfile();     
