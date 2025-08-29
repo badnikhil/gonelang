@@ -5,11 +5,16 @@
 ```
 repo/
 │
+├── asm-ref/
+│   ├── print.s   # Assembly reference for printing
+│   └── exit.s    # Assembly reference for exiting
+│
 ├── src/
 │   └── compiler.c      # The complete GoneLang compiler implementation
 │
 └── example/
     └── main.gl         # Example GoneLang program
+
 ```
 
 ---
