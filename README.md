@@ -132,7 +132,7 @@ The compiler automatically:
 
 ## 🚧 Limitations
 
-* Only supports `exit <int>;`
+* Only supports `exit <int>;` and `print("{your text}")` or `printn` for newline
 * No variables, expressions, or multiple statements.
 * Error handling is basic.
 
