@@ -155,3 +155,58 @@ The compiler automatically:
 ## 👨‍💻 Author
 
 GoneLang is an experimental language project to learn about **lexing, parsing, code generation, and system calls** in Linux x86-64.
+
+---
+
+## Project Structure
+
+```
+├── Makefile           # Build configuration
+├── README.md         # This file
+├── asm-ref/          # Reference assembly files
+│   ├── exit.s
+│   └── print.s
+├── build/            # Build artifacts (auto-generated)
+├── example/          # Example programs
+│   └── main.gl
+├── include/          # Header files
+│   └── compiler.h
+└── src/             # Source files
+    └── compiler.c   # Main compiler implementation
+```
+
+## Building
+
+To build the compiler:
+
+```bash
+make
+```
+
+This will create the `compiler` executable in the project root.
+
+## Usage
+
+```bash
+./compiler example/main.gl
+```
+
+## Current Features
+
+- [x] Basic print statement
+- [x] Exit statement
+
+## TODO
+
+- [ ] Split code into logical modules (lexer/parser/codegen)
+- [ ] Add proper error handling
+- [ ] Implement symbol table
+- [ ] Add more language features
+
+## License
+
+[Add your license here]
+
+## Notes
+
+- The current implementation keeps all functionality in `compiler.c` as per the requirement to not change the original code.
